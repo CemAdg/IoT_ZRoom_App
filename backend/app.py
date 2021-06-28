@@ -74,7 +74,7 @@ def create_app(test_config=None):
                 'lamp_id': lamp_id,
                 'success': True
             })
-            
+
 
         except BaseException:
             abort(422)
@@ -134,4 +134,4 @@ def create_app(test_config=None):
 app = create_app()
 
 if __name__ == '__main__':
-    app.run()
+    app.run(host = "0.0.0.0")
