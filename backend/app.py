@@ -2,6 +2,8 @@
 import os
 import json
 import time
+import RPi.GPIO as GPIO
+
 from flask import Flask, request, jsonify, abort
 from flask_cors import CORS
 
@@ -47,11 +49,19 @@ def create_app(test_config=None):
         
             if lamp_id == 1:
                 # Leuchte 1 für Reaktion "Frage" (BLAU)
-                # activate GPIO pins
+                
+                # set GPIO pins, requesting pins bei the board numbers (1-40)
+                GPIO.setmode(GPIO.BOARD)
+                GPIO.setup(11,GPIO.OUT)
+                GPIO.output(11,GPIO.LOW)
 
+                # activate GPIO pins
+                GPIO.output(11,GPIO.HIGH)
                 time.sleep(5)
 
-                # dectivate GPIO pins 
+                # deactivate GPIO pins
+                GPIO.output(11,GPIO.LOW)
+                GPIO.cleanup()
 
             if lamp_id == 2:
                 # Leuchte 2 für Reaktion "Daumen hoch" (GRÜN)
@@ -135,3 +145,4 @@ app = create_app()
 
 if __name__ == '__main__':
     app.run(host = "0.0.0.0")
+
