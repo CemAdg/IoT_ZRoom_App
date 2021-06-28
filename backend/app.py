@@ -65,20 +65,35 @@ def create_app(test_config=None):
 
             if lamp_id == 2:
                 # Leuchte 2 für Reaktion "Daumen hoch" (GRÜN)
-                # activate GPIO pins 
 
+                # set GPIO pins, requesting pins bei the board numbers (1-40)
+                GPIO.setmode(GPIO.BOARD)
+                GPIO.setup(13,GPIO.OUT)
+                GPIO.output(13,GPIO.LOW)
+
+                # activate GPIO pins
+                GPIO.output(13,GPIO.HIGH)
                 time.sleep(5)
 
-                # dectivate GPIO pins
+                # deactivate GPIO pins
+                GPIO.output(13,GPIO.LOW)
+                GPIO.cleanup()
 
             if lamp_id == 3:
                 # Leuchte 3 für Reaktion "Problem" (ROT)
-                # activate GPIO pins  
 
+                # set GPIO pins, requesting pins bei the board numbers (1-40)
+                GPIO.setmode(GPIO.BOARD)
+                GPIO.setup(15,GPIO.OUT)
+                GPIO.output(15,GPIO.LOW)
+
+                # activate GPIO pins
+                GPIO.output(15,GPIO.HIGH)
                 time.sleep(5)
 
-                # dectivate GPIO pins             
-
+                # deactivate GPIO pins
+                GPIO.output(15,GPIO.LOW)
+                GPIO.cleanup()
 
             return jsonify({
                 'lamp_id': lamp_id,
