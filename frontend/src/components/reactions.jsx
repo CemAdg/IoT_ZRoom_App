@@ -4,7 +4,7 @@ import Reaction from "./reaction";
 class Reactions extends Component {
   render() {
     console.log("Reactions - Rendered");
-    const { onReset, reactions, onDelete, onIncrement } = this.props;
+    const { onReset, reactions, onDelete, onClick } = this.props;
     return (
       <div>
         <button onClick={onReset} className="btn btn-primary btn-sm m-2">
@@ -14,7 +14,7 @@ class Reactions extends Component {
           <Reaction
             key={reaction.id}
             onDelete={onDelete}
-            onIncrement={onIncrement}
+            onClick={onClick}
             reaction={reaction}
           />
         ))}
