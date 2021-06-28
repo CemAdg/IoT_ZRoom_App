@@ -37,20 +37,20 @@ def create_app(test_config=None):
     """    
     @app.route('/lamp/<int:lamp_id>/activate', methods=['GET'])
     def activate_lamp(lamp_id):
+        
+        if not lamp_id == 1:
+            abort(404)
+
         try:
-            # activate GPIO pins der Leuchte lamp_id
-
-            if lamp_id == 1:
-
-
-                return jsonify({
-                    'lamp_id': lamp_id,
-                    'success': True
-                })
+        # activate GPIO pins der Leuchte lamp_id
+        
+            return jsonify({
+                'lamp_id': lamp_id,
+                'success': True
+            })
 
         except BaseException:
             abort(422)
-
 
 
     '''
