@@ -1,41 +1,41 @@
 import React, { Component } from "react";
 
-class Counter extends Component {
+class Reaction extends Component {
   getBadgeClasses() {
     let classes = "badge m-2 bg-";
-    classes += this.props.counter.value === 0 ? "warning text-dark" : "primary";
+    classes += this.props.reaction.value === 0 ? "warning text-dark" : "primary";
     return classes;
   }
 
   formatCount() {
-    const { value } = this.props.counter;
+    const { value } = this.props.reaction;
     return value === 0 ? "Zero" : value;
   }
 
   componentDidUpdate(prevProps, prevState) {
     console.log("prevProps", prevProps);
     console.log("prevState", prevState);
-    if (prevProps.counter.value !== this.props.counter.value) {
+    if (prevProps.reaction.value !== this.props.reaction.value) {
       // Ajax call and get new data from the server
     }
   }
 
   componentWillUnmount() {
-    console.log("Counter - Unmount");
+    console.log("Reaction - Unmount");
   }
   render() {
-    console.log("Counter - Rendered");
+    console.log("Reaction - Rendered");
     return (
       <div>
         <span className={this.getBadgeClasses()}>{this.formatCount()}</span>
         <button
-          onClick={() => this.props.onIncrement(this.props.counter)}
+          onClick={() => this.props.onIncrement(this.props.reaction)}
           className="btn btn-secondary btn-sm"
         >
           Increment
         </button>
         <button
-          onClick={() => this.props.onDelete(this.props.counter.id)}
+          onClick={() => this.props.onDelete(this.props.reaction.id)}
           className="btn btn-danger btn-sm m-2"
         >
           Delete
@@ -45,9 +45,4 @@ class Counter extends Component {
   }
 }
 
-//   constructor() {
-//     super();
-//     this.handleIncrement =  this.handleIncrement.bind(this);
-//   }
-
-export default Counter;
+export default Reaction;

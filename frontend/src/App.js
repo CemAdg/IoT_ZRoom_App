@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import Counters from "./components/counters";
+import Reactions from "./components/reactions";
 import "./App.css";
 import logo from "./ZRoom_Logo.png";
 
@@ -7,7 +7,7 @@ import logo from "./ZRoom_Logo.png";
 
 class App extends Component {
   state = {
-    counters: [
+    reactions: [
       { id: 1, value: "Frage?" },
       { id: 2, value: 0 },
       { id: 3, value: 0 },
@@ -22,27 +22,28 @@ class App extends Component {
     console.log("App - Mounted");
   }
 
-  handleIncrement = (counter) => {
-    const counters = [...this.state.counters];
-    const index = counters.indexOf(counter);
-    counters[index] = { ...counter };
-    counters[index].value++;
-    const requestURL = "http://localhost:5000/lamp/" + counters[index].id + "/activate"
-    fetch(requestURL)
-    this.setState({ counters });
+  handleIncrement = (reaction) => {
+    const reactions = [...this.state.reactions];
+    const index = reactions.indexOf(reaction);
+    reactions[index] = { ...reaction };
+    reactions[index].value++;
+    const requestURL = "http://localhost:5000/lamp/" + reactions[index].id + "/activate"
+    alert(requestURL)
+    //fetch(requestURL)
+    this.setState({ reactions });
   };
 
   handleReset = () => {
-    const counters = this.state.counters.map((c) => {
+    const reactions = this.state.reactions.map((c) => {
       c.value = 0;
       return c;
     });
-    this.setState({ counters });
+    this.setState({ reactions });
   };
 
-  handleDelete = (counterId) => {
-    const counters = this.state.counters.filter((c) => c.id !== counterId);
-    this.setState({ counters });
+  handleDelete = (reactionId) => {
+    const reactions = this.state.reactions.filter((c) => c.id !== reactionId);
+    this.setState({ reactions });
   };
 
   render() {
@@ -51,8 +52,8 @@ class App extends Component {
       <React.Fragment>
         <main className="container">
           <img src={logo} alt="ZRoom Logo" class="rounded mx-auto d-block m-5" />
-          <Counters
-            counters={this.state.counters}
+          <Reactions
+            reactions={this.state.reactions}
             onReset={this.handleReset}
             onIncrement={this.handleIncrement}
             onDelete={this.handleDelete}
