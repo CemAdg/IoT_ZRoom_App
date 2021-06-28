@@ -46,30 +46,35 @@ def create_app(test_config=None):
         try:
         
             if lamp_id == 1:
-                # activate GPIO pins der Leuchte 1  
+                # Leuchte 1 für Reaktion "Frage" (BLAU)
+                # activate GPIO pins
 
                 time.sleep(5)
 
-                # dectivate GPIO pins der Leuchte 1 
+                # dectivate GPIO pins 
 
             if lamp_id == 2:
-                # activate GPIO pins der Leuchte 2  
+                # Leuchte 2 für Reaktion "Daumen hoch" (GRÜN)
+                # activate GPIO pins 
 
                 time.sleep(5)
 
-                # dectivate GPIO pins der Leuchte 2 
+                # dectivate GPIO pins
 
             if lamp_id == 3:
-                # activate GPIO pins der Leuchte 3  
+                # Leuchte 3 für Reaktion "Problem" (ROT)
+                # activate GPIO pins  
 
                 time.sleep(5)
 
-                # dectivate GPIO pins der Leuchte 3             
+                # dectivate GPIO pins             
+
 
             return jsonify({
                 'lamp_id': lamp_id,
                 'success': True
             })
+            
 
         except BaseException:
             abort(422)
