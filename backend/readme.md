@@ -1,6 +1,6 @@
 # Backend
 
-## ZRoom App Lamp Manipulation APIs
+## ZRoom App - Lamp Manipulation APIs
 
 The python flask app represents the backend of the ZRoom App as the web server accepting HTTP requests from the React Frontend / ZRoom App CLient. The backend consists of a REST API that activates the corresponding lamp that the client sent in its GET request.
 
