@@ -6,7 +6,7 @@ The IoT Hackathon has the goal to find solutions for the typical problems during
 
 ## About the Stack
 
-As a MVP for our concept, we implemented a full stack web application with different software environments and components for the frontend and backend. More conceptional details about the software architecture and the prototyp can be found [here](https://gitlab.reutlingen-university.de/SCCA/ZRoom_App/-/wikis/3-Vorgehen-Prototyp-Implementierung).
+As a MVP for our concept, we implemented a full stack web application with different software environments and components for the frontend and backend. More conceptional details about the software architecture and the prototyp can be found [here](https://gitlab.reutlingen-university.de/SCCA/ZRoom_App/-/wikis/3-Softwareentwurf-und-Implementierung-Prototyp/MVP).
 
 ### Backend
 
