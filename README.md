@@ -12,10 +12,10 @@ As a MVP for our concept, we implemented a full stack web application with diffe
 
 The `./backend` directory contains a Flask web server with API endpoints, running on a RaspberryPi that is wired with some LEDs through the GPIO Pins. The API are activating the LEDs when getting API requests from the ZRoom App Client / frontend.
 
-[View the README.md within ./backend for more details.](./backend/README.md)
+[View the README.md within ./backend for more details.](https://gitlab.reutlingen-university.de/SCCA/ZRoom_App/-/tree/main/backend)
 
 ### Frontend
 
 The `./frontend` directory contains a React frontend to send HTTP requests to the Flask server. 
 
-[View the README.md within ./frontend for more details.](./frontend/README.md)
+[View the README.md within ./frontend for more details.](https://gitlab.reutlingen-university.de/SCCA/ZRoom_App/-/tree/main/frontend)
