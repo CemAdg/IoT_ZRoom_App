@@ -51,7 +51,7 @@ class App extends Component {
       reactions[i].value = index === i ? "Befehl wird gesendet ..." : "Warten ...";
     }
 
-    const requestURL = "http://0.0.0.0:5000/lamp/" + reactions[index].id + "/activate"
+    const requestURL = "http://10.0.100.151:5000/lamp/" + reactions[index].id + "/activate"
     fetch(requestURL)
     this.setState({ reactions });
   };
