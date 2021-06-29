@@ -107,27 +107,6 @@ def create_app(test_config=None):
             abort(422)
 
 
-    """
-    GET /lamp/reset
-    Reset all lamps
-    """    
-    @app.route('/lamp/reset', methods=['GET'])
-    def reset_lamps():
-        
-        try:
-        
-             # deactivate all GPIO Pins 
-
-            return jsonify({
-                'lamp_id': lamp_id,
-                'success': True
-            })
-
-        except BaseException:
-            abort(422)
-
-
-
     '''
     error handlers for aborts
     '''
