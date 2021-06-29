@@ -3,8 +3,6 @@ import Reactions from "./components/reactions";
 import "./App.css";
 import logo from "./ZRoom_Logo.png";
 
-//import { render } from "@testing-library/react";
-
 class App extends Component {
   state = {
     reactions: [
@@ -27,13 +25,27 @@ class App extends Component {
     return new Promise(resolve => setTimeout(resolve, milliseconds))
   }
 
-  componentDidUpdate(previousProps, previousState) {
+  componentDidUpdate(prevProps, prevState) {
     this.sleep(5000).then(r => {
-      if (previousState.reactions !== this.state.reactions) {
-        this.state.reactions = previousState.reactions
-        this.setState(this.state.reactions);
+      for (var i = 0; i < this.state.reactions.length; i++) {
+        if (this.state.reactions[i].value == "Befehl wird gesendet ...") {
+          this.setState({
+            reactions: [
+              { id: 1, value: "Frage ?" },
+              { id: 2, value: "Daumen Hoch" },
+              { id: 3, value: "Problem !" },
+            ],
+          })
+        }
       }
     })
+
+    //    this.sleep(5000).then(r => {
+    //     if (previousState.reactions !== this.state.reactions) {
+    //       this.state.reactions = previousState.reactions
+    //       this.setState(this.state.reactions);
+    //     }
+    //   })
   }
 
   handleClick = (reaction) => {
@@ -42,26 +54,12 @@ class App extends Component {
     reactions[index] = { ...reaction };
 
     reactions[index].value = "Befehl wird gesendet ...";
-    // for (var i = 0; i < reactions.length; i++) {
-    //   reactions[i].value = index === i ? "Befehl wird gesendet ..." : "Warten ...";
-    // }
+    for (var i = 0; i < reactions.length; i++) {
+      reactions[i].value = index === i ? "Befehl wird gesendet ..." : "Warten ...";
+    }
 
-    const requestURL = "http://localhost:5000/lamp/" + reactions[index].id + "/activate"
-    //alert(requestURL)
+    const requestURL = "http://0.0.0.0:5000/lamp/" + reactions[index].id + "/activate"
     fetch(requestURL)
-    this.setState({ reactions });
-  };
-
-  handleReset = () => {
-    const reactions = this.state.reactions.map((c) => {
-      c.value = 0;
-      return c;
-    });
-    this.setState({ reactions });
-  };
-
-  handleDelete = (reactionId) => {
-    const reactions = this.state.reactions.filter((c) => c.id !== reactionId);
     this.setState({ reactions });
   };
 
@@ -70,12 +68,10 @@ class App extends Component {
     return (
       <React.Fragment>
         <main className="container">
-          <img src={logo} alt="ZRoom Logo" class="rounded mx-auto d-block m-5" />
+          <img src={logo} alt="ZRoom Logo" className="rounded mx-auto d-block m-5" />
           <Reactions
             reactions={this.state.reactions}
-            onReset={this.handleReset}
             onClick={this.handleClick}
-            onDelete={this.handleDelete}
           />
         </main>
       </React.Fragment>

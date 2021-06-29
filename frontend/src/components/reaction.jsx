@@ -19,9 +19,9 @@ class Reaction extends Component {
   componentDidUpdate(prevProps, prevState) {
     console.log("prevProps", prevProps);
     console.log("prevState", prevState);
-    if (prevProps.reaction.value !== this.props.reaction.value) {
-      // Ajax call and get new data from the server
-    }
+    // if (prevProps.reaction.value !== this.props.reaction.value) {
+    //   // Ajax call and get new data from the server
+    // }
   }
 
   componentWillUnmount() {
@@ -31,19 +31,12 @@ class Reaction extends Component {
     console.log("Reaction - Rendered");
     return (
       <div>
-        {/* <span className={this.getBadgeClasses()}>{this.getValue()}</span> */}
-        <button
+        <button disabled={this.getValue() == "Warten ..." || this.getValue() == "Befehl wird gesendet ..."}
           onClick={() => this.props.onClick(this.props.reaction)}
           className={this.getBadgeClasses()}
         >
           {this.getValue()}
         </button>
-        {/* <button
-          onClick={() => this.props.onDelete(this.props.reaction.id)}
-          className="btn btn-danger btn-sm m-2"
-        >
-          Delete
-        </button> */}
       </div>
     );
   }
