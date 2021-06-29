@@ -39,13 +39,6 @@ class App extends Component {
         }
       }
     })
-
-    //    this.sleep(5000).then(r => {
-    //     if (previousState.reactions !== this.state.reactions) {
-    //       this.state.reactions = previousState.reactions
-    //       this.setState(this.state.reactions);
-    //     }
-    //   })
   }
 
   handleClick = (reaction) => {
