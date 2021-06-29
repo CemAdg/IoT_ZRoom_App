@@ -46,12 +46,13 @@ def create_app(test_config=None):
             abort(404)
 
         try:
+            GPIO.setmode(GPIO.BOARD)
         
             if lamp_id == 1:
                 # Leuchte 1 für Reaktion "Frage" (BLAU)
                 
                 # set GPIO pins, requesting pins bei the board numbers (1-40)
-                GPIO.setmode(GPIO.BOARD)
+                #GPIO.setmode(GPIO.BOARD)
                 GPIO.setup(11,GPIO.OUT)
                 GPIO.output(11,GPIO.LOW)
 
@@ -61,13 +62,13 @@ def create_app(test_config=None):
 
                 # deactivate GPIO pins
                 GPIO.output(11,GPIO.LOW)
-                GPIO.cleanup()
+               
 
             if lamp_id == 2:
                 # Leuchte 2 für Reaktion "Daumen hoch" (GRÜN)
 
                 # set GPIO pins, requesting pins bei the board numbers (1-40)
-                GPIO.setmode(GPIO.BOARD)
+                #GPIO.setmode(GPIO.BOARD)
                 GPIO.setup(13,GPIO.OUT)
                 GPIO.output(13,GPIO.LOW)
 
@@ -77,13 +78,13 @@ def create_app(test_config=None):
 
                 # deactivate GPIO pins
                 GPIO.output(13,GPIO.LOW)
-                GPIO.cleanup()
+                
 
             if lamp_id == 3:
                 # Leuchte 3 für Reaktion "Problem" (ROT)
 
                 # set GPIO pins, requesting pins bei the board numbers (1-40)
-                GPIO.setmode(GPIO.BOARD)
+                #GPIO.setmode(GPIO.BOARD)
                 GPIO.setup(15,GPIO.OUT)
                 GPIO.output(15,GPIO.LOW)
 
@@ -93,7 +94,8 @@ def create_app(test_config=None):
 
                 # deactivate GPIO pins
                 GPIO.output(15,GPIO.LOW)
-                GPIO.cleanup()
+                
+            GPIO.cleanup()
 
             return jsonify({
                 'lamp_id': lamp_id,
