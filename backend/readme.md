@@ -4,8 +4,6 @@
 
 The python flask app represents the backend of the ZRoom App as the web server accepting HTTP requests from the React Frontend / ZRoom App CLient. The backend consists of a REST API that activates the corresponding lamp that the client sent in its GET request.
 
-about a Casting Agency modeling a company that is responsible for creating and managing actors and movies. There are different roles within the company who are having different permissions for interacting with the company's application. 
-
 When running the app locally, the app is accessible under the following URL: http://localhost:5000 or  http://127.0.0.1:5000
 
 ## Getting Started
